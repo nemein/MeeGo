@@ -69,16 +69,19 @@ function erl_menu()
         'erl/login' => array(
             'title' => 'Login hook',
             'page callback' => 'erl__handle_login',
+            'access callback' => TRUE,
             'type' => MENU_CALLBACK
         ),
         'erl/logout' => array(
             'title' => 'Logout hook',
             'page callback' => 'erl__handle_logout',
+            'access callback' => TRUE,
             'type' => MENU_CALLBACK
         ),
         'erl/return' => array(
             'title' => 'Return hook',
             'page callback' => 'erl__handle_return',
+            'access callback' => TRUE,
             'type' => MENU_CALLBACK
         ),
     );
