@@ -1,2 +1,28 @@
 <?php
-// nothing here
+/**
+ * Implementation of hook_schema().
+ */
+function erl_schema() 
+{
+    $schema = array(
+        'erl_logout_links' => array(
+            'description' => 'Stores urls, which should be followed on logout',
+            'fields' => array(
+                'hash' => array(
+                    'type' => 'char',
+                    'length' => 64,
+                    'not null' => true,
+                    'description' => 'random hash'
+                ),
+                'url' => array(
+                    'type' => 'text',
+                    'not null' => true,
+                    'description' => 'URL to follow, after logout'
+                ),
+            ),
+            'primary key' => array('hash')
+        ),
+    );
+
+    return $schema;
+}

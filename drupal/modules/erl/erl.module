@@ -148,11 +148,12 @@ function erl__handle_logout()
         drupal_goto($url);
     }
 
-    // 4). store url in session
-    $_SESSION['erl_return_url'] = $url;
+    // 4). store url in db
+    $hash = hash('sha256', mt_rand().strval(microtime(true)).$url);
+    db_query("INSERT INTO {erl_logout_links} (hash, url) VALUES ('%s', '%s')", $hash, $url);
 
     // 5). redirect to logout?destination=erl/return
-    drupal_goto('logout', 'destination=erl/return');
+    drupal_goto('logout', 'destination=erl/return/'.$hash);
 }
 
 function erl__handle_return()
@@ -163,7 +164,22 @@ function erl__handle_return()
         return null;
     }
 
-    $url = $_SESSION['erl_return_url'];
+    $hash = arg(3);
+    if (empty($hash)) {
+        // login case
+        $url = $_SESSION['erl_return_url'];
+        unset($_SESSION['erl_return_url']);
+    } else {
+        $res = db_query("SELECT url FROM {erl_logout_links} WHERE hash = '%s'", $hash);
+        if (!$res) {
+            trigger_error('Did not find url in database');
+            return null;
+        }
+        $row = db_fetch_object($res);
+        $url = $row->url;
+
+        db_query("DELETE FROM {erl_logout_links} WHERE hash = '%s'", $hash);
+    }
 
     // 2). Validate that url is in whitelist (a bit of paranoia)
     $allowed = _erl_get_allowed_hosts();
