@@ -159,14 +159,14 @@ function erl__handle_logout()
 function erl__handle_return()
 {
     // 1). Check that session has url stored
-    if (!isset($_SESSION['erl_return_url'])) {
-        trigger_error('Return-url is not set');
-        return null;
-    }
-
     $hash = arg(3);
     if (empty($hash)) {
         // login case
+        if (!isset($_SESSION['erl_return_url'])) {
+            trigger_error('Return-url is not set');
+            return null;
+        }
+
         $url = $_SESSION['erl_return_url'];
         unset($_SESSION['erl_return_url']);
     } else {
