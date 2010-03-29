@@ -91,29 +91,87 @@ function erl_menu()
 
 function erl__handle_login()
 {
-    /*
-    1). get redirect-url
-    2). check that it fits in "allowed hosts"
-    3). store url in session
-    4). redirect to user/login?destination=erl/return
-    */
+    // 1). get referer-url
+    if (empty($_SERVER['HTTP_REFERRER']))
+        return null;
+
+    $url = $_SERVER['HTTP_REFERRER'];
+
+    // 2). check that it fits in "allowed hosts"
+    $allowed = _erl_get_allowed_hosts();
+    $pieces = parse_url($url);
+
+    if (!in_array($pieces['host'], $allowed))
+        return null;
+
+    // 3). Check if user is already logged in (get back, if so)
+    if (user_is_logged_in()) {
+        unset($_REQUEST['destination']);
+        unset($_REQUEST['edit']['destination']);
+        drupal_goto($url);
+    }
+
+    // 4). store url in session
+    $_SESSION['erl_return_url'] = $url;
+
+    // 5). redirect to user/login?destination=erl/return
+    $_REQUEST['destination'] = 'erl/return';
+    drupal_goto('user/login');
 }
 
 function erl__handle_logout()
 {
-    /*
-    1). get redirect-url
-    2). check that it fits in "allowed hosts"
-    3). store url in session
-    4). redirect to user/logout?destination=erl/return
-    */
+    // 1). get referer-url
+    if (empty($_SERVER['HTTP_REFERRER']))
+        return null;
+
+    $url = $_SERVER['HTTP_REFERRER'];
+
+    // 2). check that it fits in "allowed hosts"
+    $allowed = _erl_get_allowed_hosts();
+    $pieces = parse_url($url);
+
+    if (!in_array($pieces['host'], $allowed))
+        return null;
+
+    // 3). Check if user is not logged in (get back, if so)
+    if (user_is_anonymous()) {
+        unset($_REQUEST['destination']);
+        unset($_REQUEST['edit']['destination']);
+        drupal_goto($url);
+    }
+
+    // 4). store url in session
+    $_SESSION['erl_return_url'] = $url;
+
+    // 5). redirect to logout?destination=erl/return
+    $_REQUEST['destination'] = 'erl/return';
+    drupal_goto('logout');
 }
 
 function erl__handle_return()
 {
-    /*
-    1). Check that session has url stored
-    2). Validate that url is in whitelist (a bit of paranoia)
-    3). Redirect to url
-    */
+    // 1). Check that session has url stored
+    if (!isset($_SESSION['erl_return_url']))
+        return null;
+
+    $url = $_SESSION['erl_return_url'];
+
+    // 2). Validate that url is in whitelist (a bit of paranoia)
+    $allowed = _erl_get_allowed_hosts();
+    $pieces = parse_url($url);
+
+    if (!in_array($pieces['host'], $allowed))
+        return null;
+
+    // 3). Redirect to url
+    unset($_REQUEST['destination']);
+    unset($_REQUEST['edit']['destination']);
+    drupal_goto($url);
+}
+
+
+function _erl_get_allowed_hosts()
+{
+    return array_map('trim', explode(',', variable_get('erl_hosts_allowed', '')));
 }
