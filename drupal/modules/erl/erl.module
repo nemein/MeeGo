@@ -159,7 +159,7 @@ function erl__handle_logout()
 function erl__handle_return()
 {
     // 1). Check that session has url stored
-    $hash = arg(3);
+    $hash = arg(2);
     if (empty($hash)) {
         // login case
         if (!isset($_SESSION['erl_return_url'])) {
