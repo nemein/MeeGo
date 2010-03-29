@@ -92,12 +92,12 @@ function erl_menu()
 function erl__handle_login()
 {
     // 1). get referer-url
-    if (empty($_SERVER['HTTP_REFERRER'])) {
-        trigger_error('Referrer is not available');
+    if (empty($_SERVER['HTTP_REFERER'])) {
+        trigger_error('Referer is not available');
         return null;
     }
 
-    $url = $_SERVER['HTTP_REFERRER'];
+    $url = $_SERVER['HTTP_REFERER'];
 
     // 2). check that it fits in "allowed hosts"
     $allowed = _erl_get_allowed_hosts();
@@ -126,12 +126,12 @@ function erl__handle_login()
 function erl__handle_logout()
 {
     // 1). get referer-url
-    if (empty($_SERVER['HTTP_REFERRER'])) {
-        trigger_error('Referrer is not available');
+    if (empty($_SERVER['HTTP_REFERER'])) {
+        trigger_error('Referer is not available');
         return null;
     }
 
-    $url = $_SERVER['HTTP_REFERRER'];
+    $url = $_SERVER['HTTP_REFERER'];
 
     // 2). check that it fits in "allowed hosts"
     $allowed = _erl_get_allowed_hosts();
