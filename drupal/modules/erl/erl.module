@@ -119,8 +119,7 @@ function erl__handle_login()
     $_SESSION['erl_return_url'] = $url;
 
     // 5). redirect to user/login?destination=erl/return
-    $_REQUEST['destination'] = 'erl/return';
-    drupal_goto('user/login');
+    drupal_goto('user/login', 'destination=erl/return');
 }
 
 function erl__handle_logout()
@@ -153,8 +152,7 @@ function erl__handle_logout()
     $_SESSION['erl_return_url'] = $url;
 
     // 5). redirect to logout?destination=erl/return
-    $_REQUEST['destination'] = 'erl/return';
-    drupal_goto('logout');
+    drupal_goto('logout', 'destination=erl/return');
 }
 
 function erl__handle_return()
