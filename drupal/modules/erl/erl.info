@@ -1,0 +1,5 @@
+name = External Redirector after Login
+description = Allows to redirect user to custom URL of external whitelisted domain
+package = erl
+version = 1.0.0
+core = 6.x

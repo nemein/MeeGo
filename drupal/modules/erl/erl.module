@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * Implementation of hook_help().
+ */
+function erl_help($path, $arg)
+{
+    // =========
+    // = FIXME =
+    // =========
+    return '<p>Allows to redirect user to custom URL of external whitelisted domain</p>';
+}
+
+/**
+ * Implementation of hook_admin()
+ * Configuration settings go here
+ */
+function erl_admin()
+{
+    $form = array(
+        'erl_hosts_allowed' => array(
+            '#type' => 'textarea',
+            '#title' => t('Allowed hosts'),
+            '#default_value' => variable_get('erl_hosts_allowed', ''),
+            '#description' => t("Hostnames divided by commas. Spaces are ignored"),
+            '#required' => TRUE,
+        ),
+    );
+
+    return system_settings_form($form);
+}
+
+/**
+ * Validator for erl_admin()
+ */
+function erl_admin_validate($form, &$form_state)
+{
+    $hosts = array_map('trim', explode(',', $form_state['values']['erl_hosts_allowed']));
+
+    $everything_is_good = true;
+    foreach ($hosts as $host) {
+        if (preg_match('/[\s\t:\/]/u', $host) != 0) {
+            form_set_error('erl_hosts_allowed', 'This does not look like a host: "'.$host.'"');
+            $everything_is_good = false;
+        }
+    }
+
+    if (true === $everything_is_good) {
+        // saving list of hosts as a nice string
+        $form_state['values']['erl_hosts_allowed'] = implode(', ', $hosts);
+    }
+}
+
+/**
+ * Implementation of hook_menu()
+ * registers our URLs in Drupal's urlmap
+ */
+function erl_menu()
+{
+    $items = array(
+        'admin/settings/erl' => array(
+            'title' => 'E.R.L. module settings',
+            'description' => 'Various settings of "External Redirector after Login" module',
+            'page callback' => 'drupal_get_form',
+            'page arguments' => array('erl_admin'),
+            'access arguments' => array('access administration pages'),
+            'type' => MENU_NORMAL_ITEM,
+        ),
+    );
+
+    return $items;
+}
