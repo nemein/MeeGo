@@ -92,8 +92,10 @@ function erl_menu()
 function erl__handle_login()
 {
     // 1). get referer-url
-    if (empty($_SERVER['HTTP_REFERRER']))
+    if (empty($_SERVER['HTTP_REFERRER'])) {
+        trigger_error('Referrer is not available');
         return null;
+    }
 
     $url = $_SERVER['HTTP_REFERRER'];
 
@@ -101,8 +103,10 @@ function erl__handle_login()
     $allowed = _erl_get_allowed_hosts();
     $pieces = parse_url($url);
 
-    if (!in_array($pieces['host'], $allowed))
+    if (!in_array($pieces['host'], $allowed)) {
+        trigger_error('"'.$pieces['host'].'" is not in allowed list');
         return null;
+    }
 
     // 3). Check if user is already logged in (get back, if so)
     if (user_is_logged_in()) {
@@ -122,8 +126,10 @@ function erl__handle_login()
 function erl__handle_logout()
 {
     // 1). get referer-url
-    if (empty($_SERVER['HTTP_REFERRER']))
+    if (empty($_SERVER['HTTP_REFERRER'])) {
+        trigger_error('Referrer is not available');
         return null;
+    }
 
     $url = $_SERVER['HTTP_REFERRER'];
 
@@ -131,8 +137,10 @@ function erl__handle_logout()
     $allowed = _erl_get_allowed_hosts();
     $pieces = parse_url($url);
 
-    if (!in_array($pieces['host'], $allowed))
+    if (!in_array($pieces['host'], $allowed)) {
+        trigger_error('"'.$pieces['host'].'" is not in allowed list');
         return null;
+    }
 
     // 3). Check if user is not logged in (get back, if so)
     if (user_is_anonymous()) {
@@ -152,8 +160,10 @@ function erl__handle_logout()
 function erl__handle_return()
 {
     // 1). Check that session has url stored
-    if (!isset($_SESSION['erl_return_url']))
+    if (!isset($_SESSION['erl_return_url'])) {
+        trigger_error('Return-url is not set');
         return null;
+    }
 
     $url = $_SESSION['erl_return_url'];
 
@@ -161,8 +171,10 @@ function erl__handle_return()
     $allowed = _erl_get_allowed_hosts();
     $pieces = parse_url($url);
 
-    if (!in_array($pieces['host'], $allowed))
+    if (!in_array($pieces['host'], $allowed)) {
+        trigger_error('"'.$pieces['host'].'" is not in allowed list');
         return null;
+    }
 
     // 3). Redirect to url
     unset($_REQUEST['destination']);
