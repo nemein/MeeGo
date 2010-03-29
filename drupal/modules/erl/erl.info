@@ -3,3 +3,4 @@ description = Allows to redirect user to custom URL of external whitelisted doma
 package = erl
 version = 1.0.0
 core = 6.x
+dependencies[] = user
