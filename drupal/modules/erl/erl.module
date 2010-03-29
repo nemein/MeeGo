@@ -70,3 +70,32 @@ function erl_menu()
 
     return $items;
 }
+
+function erl__handle_login()
+{
+    /*
+    1). get redirect-url
+    2). check that it fits in "allowed hosts"
+    3). store url in session
+    4). redirect to user/login?destination=erl/return
+    */
+}
+
+function erl__handle_logout()
+{
+    /*
+    1). get redirect-url
+    2). check that it fits in "allowed hosts"
+    3). store url in session
+    4). redirect to user/logout?destination=erl/return
+    */
+}
+
+function erl__handle_return()
+{
+    /*
+    1). Check that session has url stored
+    2). Validate that url is in whitelist (a bit of paranoia)
+    3). Redirect to url
+    */
+}
