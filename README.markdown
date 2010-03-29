@@ -16,9 +16,9 @@ The reason for this is that we've recognized that several [maemo.org community t
 
 ## Setup
 
-* A Midgard 8.09 ([Ragnaroek LTS][5]) installation and Drupal 5 installation on same server
+* A Midgard 8.09 ([Ragnaroek LTS][5]) installation and Drupal 6 installation on same server
 * Midgard runs as a subdirectory on the Drupal vhost
-* Midgard uses Drupal's `session` and `user` tables for SSO
+* Midgard uses Drupal's `session` and `user` tables for SSO via [net.nemein.drupalauth][6]
 * Midgard has a copy of the MeeGo layout templates
 
 [1]: http://meego.com
@@ -26,3 +26,4 @@ The reason for this is that we've recognized that several [maemo.org community t
 [3]: http://bergie.iki.fi/blog/maemo-s_community_involvement_infrastructure_is_what_meego_needs
 [4]: http://wiki.meego.com/Maemo_and_Moblin_community_assets
 [5]: http://bergie.iki.fi/blog/long-term_support_for_midgard-ragnaroek_is_here/
+[6]: http://trac.midgard-project.org/browser/branches/ragnaroek/midcom/net.nemein.drupalauth
