@@ -1,3 +1,6 @@
+<?php
+  $topic = $_MIDCOM->get_context_data(MIDCOM_CONTEXT_CONTENTTOPIC);
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
@@ -8,7 +11,7 @@
     <meta name="robots" content="index, follow"/>
     <link rel="stylesheet" type="text/css" media="screen" href="/meego.css"/>
     <link rel="shortcut icon" href="http://meego.com/sites/all/themes/meego/favicon.ico" type="image/x-icon" />
-    <title><(title)> - <?php echo $_MIDCOM->get_context_data(MIDCOM_CONTEXT_PAGETITLE); ?></title>
+    <title><(title)> - <?php echo $topic->extra; ?></title>
     <?php
       $_MIDCOM->print_head_elements(); 
     ?>
@@ -34,18 +37,7 @@
                 </div>
               </form>
             </div>
-            <div id="account-menu" class="links">
-              <div class="region region-account-links">
-                <div id="block-menu-menu-account-links" class="block block-menu region-odd even region-count-1 count-2 block-">
-                  <div class="content">
-                    <ul class="drupal_menu">
-                      <li class="leaf first"><a href="#">My account</a></li>
-                      <li class="leaf last"><a href="#" title="">Logout</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <(account-menu)>
           </div>
         </div>
         <div id="main-wrapper">
