@@ -1,0 +1,37 @@
+/* news fron styles */
+h2.entry-title {
+  font-size: 0.8em;
+}
+
+/* planet styles */
+div.planet-entry {
+  background:transparent url(/images/bg-header.gif) repeat-x scroll left top;
+  clear:left;
+  display:block;
+  padding-bottom:20px;
+  padding-top:20px;
+  margin: 0 0 15px 0;
+}
+
+div.section div.first {
+  background: none;
+}
+
+div.planet-entry img.picture {
+  float: left;
+}
+
+div.planet-entry h1 {
+  font-size: 1.1em;
+}
+
+div.planet-entry div.post-content {
+  clear: both;
+  text-align: justify;
+  margin: 10px 0 0 0;
+}
+
+div.publish-info a.author {
+  float: left;
+  margin: 0 4px 0 0;
+}

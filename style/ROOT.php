@@ -11,10 +11,21 @@
     <meta name="robots" content="index, follow"/>
     <link rel="stylesheet" type="text/css" media="screen" href="/meego.css"/>
     <link rel="shortcut icon" href="http://meego.com/sites/all/themes/meego/favicon.ico" type="image/x-icon" />
-    <title><(title)> - <?php echo $topic->extra; ?></title>
     <?php
       $_MIDCOM->print_head_elements(); 
     ?>
+    <?php
+      $_MIDCOM->componentloader->load_graceful('net.nemein.favourites');
+      if ($_MIDCOM->auth->user) {
+        net_nemein_favourites_admin::get_ajax_headers('{force_ssl: false}');
+      }
+      else {
+        net_nemein_favourites_admin::get_ajax_headers('{force_ssl: false}');
+      }
+    ?>  
+    <link rel="stylesheet" type="text/css" media="screen" href="/favourites.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="/news.css"/>
+    <title><(title)> - <?php echo $topic->extra; ?></title>
   </head>
   <body>
     <!-- page -->
