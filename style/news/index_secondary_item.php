@@ -18,7 +18,7 @@ if (isset($article->metadata->authors))
         {
             continue;
         }
-        $author_string = '<a href="http://meego.nemein.net/?q=user/'. $author->userid .'">'. $author->name . '</a>';
+        $author_string = '<a href="http://meego.nemein.net/?q=user/'. $author->username .'">'. $author->name . '</a>';
     }
 }
 
@@ -62,7 +62,7 @@ $date_string = "<abbr class=\"published\" title=\"" . strftime('%Y-%m-%dT%H:%M:%
     }
     else
     {
-        echo sprintf($data['l10n']->get('%s <span>&nbsp;to&nbsp;</span> %s <span style="float: left">&nbsp;by&nbsp;</span> %s'), $date_string, $node_string, $author_string);
+        echo sprintf($data['l10n']->get('%s <span>&nbsp;to&nbsp;</span> %s <span>&nbsp;by&nbsp;</span> %s'), $date_string, $node_string, $author_string);
     }
     ?>
     <div class="fav">
