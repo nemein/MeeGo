@@ -8,7 +8,6 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="keywords" content="midgard,meego,maemo" />
-    <meta name="description" content="Midgard SocialNews a'la MeeGo" />
     <meta name="robots" content="index, follow"/>
     <link rel="stylesheet" type="text/css" media="screen" href="/meego.css"/>
     <link rel="shortcut icon" href="http://meego.com/sites/all/themes/meego/favicon.ico" type="image/x-icon" />
@@ -26,7 +25,7 @@
     ?>  
     <link rel="stylesheet" type="text/css" media="screen" href="/favourites.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="/news.css"/>
-    <title><(title)> - <?php echo $topic->extra; ?></title>
+    <title><?php echo $topic->extra; ?> | <(title)></title>
   </head>
   <body>
     <!-- page -->
@@ -37,18 +36,7 @@
             <div id="name-and-slogan">
               <div id="site-name"><strong> <a href="/" title="Home" rel="home"><span>MeeGo</span></a> </strong></div>
             </div>
-            <div id="search-box">
-              <form action="search.php"  accept-charset="UTF-8" method="post" id="search-theme-form">
-                <div>
-                  <div id="search" class="container-inline">
-                    <div class="form-item" id="query-wrapper">
-                      <input type="text" name="query" id="query" size="15" title="Enter the terms you wish to search for." class="form-text" value="Search" onfocus="if (this.value == 'Search') this.value = '';" onblur="if(this.value == '') this.value='Search';" />
-                    </div>
-                    <input type="submit" name="op" id="edit-submit" value="Go"  class="form-submit" />
-                  </div>
-                </div>
-              </form>
-            </div>
+            <(search)>
             <(account-menu)>
           </div>
         </div>
@@ -79,13 +67,13 @@
                   <div class="content">
                     <div class="menu-name-primary-links parent-mlid-0 menu-level-1">
                       <ul class="drupal_menu">
-                        <li class="leaf first menu-mlid-709"><a href="/" title="">Home</a></li>
-                        <li class="leaf menu-mlid-710 has-children"><a href="/downloads" title="Downloads">Downloads</a></li>
-                        <li class="leaf menu-mlid-801"><a href="/developers" title="Developers">Developers</a></li>
-                        <li class="leaf menu-mlid-983 has-children"><a href="/projects" title="Projects">Projects</a></li>
-                        <li class="leaf menu-mlid-985 has-children"><a href="/garage" title="Garage">Garage</a></li>
-                        <li class="leaf menu-mlid-715 has-children"><a href="/community" title="Community">Community</a></li>
-                        <li class="leaf last menu-mlid-728 has-children"><a href="/about" title="About">About</a></li>
+                        <li class="leaf first menu-mlid-709"><a href="http://meego.com/" title="">Home</a></li>
+                        <li class="leaf menu-mlid-710 has-children"><a href="http://meego.com/downloads" title="Downloads">Downloads</a></li>
+                        <li class="leaf menu-mlid-801"><a href="http://meego.com/developers" title="Developers">Developers</a></li>
+                        <li class="leaf menu-mlid-983 has-children"><a href="http://meego.com/projects" title="Projects">Projects</a></li>
+                        <li class="leaf menu-mlid-985 has-children"><a href="http://meego.com/garage" title="Garage">Garage</a></li>
+                        <li class="leaf menu-mlid-715 has-children"><a href="http://meego.com/community" title="Community">Community</a></li>
+                        <li class="leaf last menu-mlid-728 has-children"><a href="http://meego.com/about" title="About">About</a></li>
                       </ul>
                     </div>
                   </div>
@@ -95,11 +83,11 @@
                   <div class="content">
                     <div class="menu-name-primary-links parent-mlid-738 menu-level-1">
                       <ul class="drupal_menu">
-                        <li class="leaf first menu-mlid-813"><a href="/devices/connected-tv" title="Connected TV">Connected TV</a></li>
-                        <li class="leaf menu-mlid-805"><a href="/devices/handheld" title="Handheld">Handheld</a></li>
-                        <li class="leaf menu-mlid-812"><a href="/devices/in-vehicle" title="In-Vehicle">In-Vehicle</a></li>
-                        <li class="leaf menu-mlid-814"><a href="/devices/media-phone" title="Media phone">Media phone</a></li>
-                        <li class="leaf last menu-mlid-804"><a href="/devices/netbook" title="Netbook">Netbook</a></li>
+                        <li class="leaf first menu-mlid-813"><a href="http://meego.com/devices/connected-tv" title="Connected TV">Connected TV</a></li>
+                        <li class="leaf menu-mlid-805"><a href="http://meego.com/devices/handheld" title="Handheld">Handheld</a></li>
+                        <li class="leaf menu-mlid-812"><a href="http://meego.com/devices/in-vehicle" title="In-Vehicle">In-Vehicle</a></li>
+                        <li class="leaf menu-mlid-814"><a href="http://meego.com/devices/media-phone" title="Media phone">Media phone</a></li>
+                        <li class="leaf last menu-mlid-804"><a href="http://meego.com/devices/netbook" title="Netbook">Netbook</a></li>
                       </ul>
                     </div>
                   </div>
@@ -108,9 +96,9 @@
                 <div id="block-menu-menu-footerextras" class="block block-menu region-odd odd region-count-3 count-5 block-">
                   <div class="content">
                     <ul class="drupal_menu">
-                      <li class="leaf first"><a href="/contact" title="">Contact</a></li>
-                      <li class="leaf"><a href="/about/privacy-policy" title="">Privacy Policy</a></li>
-                      <li class="leaf last"><a href="/about/terms-service" title="">Terms of Service</a></li>
+                      <li class="leaf first"><a href="http://meego.com/contact" title="">Contact</a></li>
+                      <li class="leaf"><a href="http://meego.com/about/privacy-policy" title="">Privacy Policy</a></li>
+                      <li class="leaf last"><a href="http://meego.com/about/terms-service" title="">Terms of Service</a></li>
                     </ul>
                   </div>
                 </div>
@@ -135,4 +123,3 @@
     ?>
   </body>
 </html>
-

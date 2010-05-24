@@ -61,7 +61,7 @@ if (array_key_exists('comments_enable', $data))
     ?>
     <h2 class="entry-title"><a href="&(data['view_url']);" rel="bookmark"><?php echo $data['article']->title; ?></a> </h2>
 
-        <div id="net_nemein_favourites_for_<?php echo $data['article']->guid; ?>" class='net_nemein_favourites <?php echo net_nemein_favourites_admin::get_json_data($data['article']->__mgdschema_class_name__, $data['article']->guid, '/news/favourites/');?>'>
+        <div id="net_nemein_favourites_for_<?php echo $data['article']->guid; ?>" class='net_nemein_favourites <?php echo net_nemein_favourites_admin::get_json_data($data['article']->__mgdschema_class_name__, $data['article']->guid, $GLOBALS['maemo_favourites_url']);?>'>
             <div class="fav_btn"><span class="favs_count">0</span></div>
             <div class="bury_btn"><span class="bury_count">0</span></div>
             <div class="net_nemein_favourites_clearfix"></div>
@@ -106,4 +106,3 @@ if (array_key_exists('comments_enable', $data))
     ?>
     <p class="published">&(published:h);</p>
 </div>
-
