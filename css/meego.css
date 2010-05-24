@@ -395,6 +395,85 @@ ul.fi_protie_navigation ul.fi_protie_navigation li {
   background-position: left 7px;
 }
 
+div.error {
+  -moz-background-clip:border;
+  -moz-background-inline-policy:continuous;
+  -moz-background-origin:padding;
+  padding:2px;
+}
+
+div.messages, div.status, div.warning, div.unpublished, div.error {
+  background-color:#EAEAEA;
+  background-image:url(http://meego.com/sites/all/themes/meego/images/messages-status.png);
+  background-position:5px 5px;
+  background-repeat:no-repeat;
+  border:2px solid #E3038D;
+  color:#333333;
+  margin:1em;
+  min-height:21px;
+  padding:  5px 5px 5px 35px;
+}
 
 
+div.error {
+  background-color:#FFEEEE;
+  color:#990000;
+}
 
+div.error {
+  background-image:url(http://meego.com/sites/all/themes/meego/images/messages-error.png);
+  border:1px solid #DD7777;
+}
+
+span.mailto {
+  -moz-background-clip:border;
+  -moz-background-inline-policy:continuous;
+  -moz-background-origin:padding;
+  background:transparent url(http://meego.com/sites/all/modules/contrib/extlink/mailto.png) no-repeat scroll right center;
+  padding-right:12px;
+}
+
+div#drupal_content.full {
+  margin-top: 100px;
+  width: 760px;
+}
+
+div.form-item {
+  position: relative;
+}
+
+div.form-item label {
+  color: #666666;
+}
+
+label.compact-form-label {
+  position: absolute;
+  left: 5px;
+  top: 3px;
+  z-index: 1;
+  display: inline;
+  cursor: default;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin:0 0 2em;
+  padding:0;
+}
+
+form#midcom_services_auth_frontend_form, 
+div#open_id_form {
+  float: left;
+}
+
+form#midcom_services_auth_frontend_form {
+  margin: 0 5em 0 0;
+}
+
+input#openid_submit {
+  display: block;
+  margin: 1.3em 0 0 0;
+}
