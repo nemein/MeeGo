@@ -96,7 +96,7 @@ if (!class_exists('net_nemein_favourites_admin'))
 {
     $_MIDCOM->componentloader->load_graceful('net.nemein.favourites');
 }
-$item->description .= net_nemein_favourites_admin::render_ajax_add_link($data['article']->__mgdschema_class_name__, $data['article']->guid, $GLOBALS['maemo_favourites_url'], true, 'http://maemo.org/news/');
+$item->description .= net_nemein_favourites_admin::render_ajax_add_link($data['article']->__mgdschema_class_name__, $data['article']->guid, $GLOBALS['news_favourites_url'], true, 'http://news.meego.com/');
 
 $data['feedcreator']->addItem($item);
 ?>

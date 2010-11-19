@@ -31,7 +31,7 @@ $date_string = "<abbr class=\"published\" title=\"" . strftime('%Y-%m-%dT%H:%M:%
         </div>
         <noscript>
         <?php
-        net_nemein_favourites_admin::render_add_link($data['article']->__mgdschema_class_name__, $data['article']->guid, $GLOBALS['maemo_favourites_url']);
+        net_nemein_favourites_admin::render_add_link($data['article']->__mgdschema_class_name__, $data['article']->guid, $GLOBALS['news_favourites_url']);
         ?>
         </noscript>
         <?php

@@ -72,14 +72,14 @@ $date_string = "<abbr class=\"published\" title=\"" . strftime('%Y-%m-%dT%H:%M:%
     }
     ?>
       <div class="fav">
-          <div id="net_nemein_favourites_for_<?php echo $data['article']->guid; ?>" class='net_nemein_favourites <?php echo net_nemein_favourites_admin::get_json_data($data['article']->__mgdschema_class_name__, $data['article']->guid, $GLOBALS['maemo_favourites_url']);?>'>
+          <div id="net_nemein_favourites_for_<?php echo $data['article']->guid; ?>" class='net_nemein_favourites <?php echo net_nemein_favourites_admin::get_json_data($data['article']->__mgdschema_class_name__, $data['article']->guid, $GLOBALS['news_favourites_url']);?>'>
               <div class="fav_btn"><span class="favs_count">0</span></div>
               <div class="bury_btn"><span class="bury_count">0</span></div>
               <div class="net_nemein_favourites_clearfix"></div>
           </div>
           <noscript>
           <?php
-          net_nemein_favourites_admin::render_add_link($data['article']->__mgdschema_class_name__, $data['article']->guid, $GLOBALS['maemo_favourites_url']);
+          net_nemein_favourites_admin::render_add_link($data['article']->__mgdschema_class_name__, $data['article']->guid, $GLOBALS['news_favourites_url']);
           ?>
           </noscript>
       </div><!-- fav -->
