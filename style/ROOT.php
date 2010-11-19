@@ -34,7 +34,7 @@
         <div id="drupal_header">
           <div class="section clearfix">
             <div id="name-and-slogan">
-              <div id="site-name"><strong> <a href="/" title="Home" rel="home"><span>MeeGo</span></a> </strong></div>
+              <div id="site-name"><strong> <a href="http://meego.com" title="Home" rel="home"><span>MeeGo</span></a> </strong></div>
             </div>
             <(search)>
             <(account-menu)>
