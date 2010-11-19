@@ -67,13 +67,15 @@
                   <div class="content">
                     <div class="menu-name-primary-links parent-mlid-0 menu-level-1">
                       <ul class="drupal_menu">
-                        <li class="leaf first menu-mlid-709"><a href="http://meego.com/" title="">Home</a></li>
-                        <li class="leaf menu-mlid-710 has-children"><a href="http://meego.com/downloads" title="Downloads">Downloads</a></li>
-                        <li class="leaf menu-mlid-801"><a href="http://meego.com/developers" title="Developers">Developers</a></li>
-                        <li class="leaf menu-mlid-983 has-children"><a href="http://meego.com/projects" title="Projects">Projects</a></li>
-                        <li class="leaf menu-mlid-985 has-children"><a href="http://meego.com/garage" title="Garage">Garage</a></li>
-                        <li class="leaf menu-mlid-715 has-children"><a href="http://meego.com/community" title="Community">Community</a></li>
-                        <li class="leaf last menu-mlid-728 has-children"><a href="http://meego.com/about" title="About">About</a></li>
+                        <li class="leaf first"><a href="http://meego.com/" title="">Home</a></li>
+                        <li class="leaf has-children"><a href="http://meego.com/downloads" title="Downloads">Downloads</a></li>
+                        <li class="leaf"><a href="http://meego.com/developers" title="Developers">Developers</a></li>
+                        <li class="leaf has-children"><a href="http://meego.com/projects" title="Projects">Projects</a></li>
+                        <li class="leaf has-children"><a href="http://meego.com/garage" title="Garage">Garage</a></li>
+                        <li class="leaf has-children"><a href="http://meego.com/devices" title="Garage">Devices</a></li>
+                        <li class="leaf has-children"><a href="http://meego.com/community" title="Community">Community</a></li>
+                        <li class="leaf has-children"><a href="http://news.meego.com" title="News">News</a></li>
+                        <li class="leaf last has-children"><a href="http://meego.com/about" title="About">About</a></li>
                       </ul>
                     </div>
                   </div>
