@@ -5,7 +5,8 @@
   <li><a href="http://meego.com/projects" title="Projects">Projects</a></li> 
   <li><a href="http://meego.com/garage" title="Garage">Garage</a></li> 
   <li><a href="http://meego.com/devices" title="Devices">Devices</a></li> 
-  <li class="active-trail active"><a href="http://meego.com/community" title="Community" class="active">Community</a></li> 
+  <li><a href="http://meego.com/community" title="Community">Community</a></li> 
+  <li class="active-trail active"><a href="http://news.meego.com" title="News">News</a></li> 
   <li class="last"><a href="http://meego.com/about" title="About">About</a></li> 
 </ul>
       
