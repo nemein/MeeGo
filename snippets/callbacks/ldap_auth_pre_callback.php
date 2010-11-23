@@ -9,13 +9,12 @@ ldap_auth_pre_callback($argv[1]);
  * if user exists in LDAP then create an account in db
  * if user does not exist then .. give up :)
  */
-function ldap_auth_pre_callback($username) {
+function ldap_auth_pre_callback($username)
+{
     $qb = new midgard_query_builder('midgard_person');
     $qb->add_contraint('username', '=', $username);
-
-    $users = $qb->execute();
-
-    if (count($users)) {
+    if ($qb->count() > 0)
+    {
         return;
     }
     else
@@ -27,9 +26,7 @@ function ldap_auth_pre_callback($username) {
             var_dump($ldap_user);
         }
     }
-    unset($users);
     unset($ldap_user);
-    return;
 }
 
 /**
@@ -41,27 +38,25 @@ function ldap_auth_pre_callback($username) {
 function _ldap_search($criteria)
 {
     $retval = null;
-    if (isset($criteria))
+    if ( ! isset($criteria) )
+    {
+        return $retval;
+    }
+    else
     {
         $criteria = 'uid=' . $criteria;
 
         $ds = ldap_connect("ldaps://ldap1.meego.com");
-        echo "Connect result is " . $ds . "\n";
 
-        if ($ds)
+        if ( ! $ds )
         {
-            echo "Searching for $criteria\n";
-
-            // Search surname entry
+            return $retval;
+        }
+        else
+        {
             $sr = ldap_search($ds, "ou=People,dc=meego,dc=com", $criteria);
 
-            echo "Search result is: " . $sr . "\n";
-            echo "Number of entires returned is: " . ldap_count_entries($ds, $sr) . "\n";
-            echo "Getting entries ...\n";
-
             $info = ldap_get_entries($ds, $sr);
-
-            echo "Data for " . $info["count"] . " items returned:\n";
 
             if ($info['count'] > 0) {
                 $retval = array(
@@ -70,13 +65,8 @@ function _ldap_search($criteria)
                     'email' => $info[0]["mail"][0]
                 );
             }
-            echo "Closing connection\n";
             ldap_close($ds);
         }
-    }
-    else
-    {
-        echo "Unable to connect to LDAP server\n";
     }
     return $retval;
 }
