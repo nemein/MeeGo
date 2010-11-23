@@ -20,8 +20,11 @@ function ldap_auth_pre_callback($username)
         $ldap_user = _ldap_search($username);
         if ($ldap_user)
         {
-            echo "create an account for: " . $username . "\n";
-            var_dump($ldap_user);
+            $user = new midgard_person();
+            $user->username = $ldap_user['username'];
+            $user->firstname = $ldap_user['firstname'];
+            $user->email = $ldap_user['email'];
+            $user->create();
         }
     }
     unset($ldap_user);
@@ -59,7 +62,7 @@ function _ldap_search($criteria)
             if ($info['count'] > 0) {
                 $retval = array(
                     'username' => $info[0]["uid"][0],
-                    'firtname' => $info[0]["cn"][0],
+                    'firstname' => $info[0]["cn"][0],
                     'email' => $info[0]["mail"][0]
                 );
             }
