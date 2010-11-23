@@ -22,7 +22,7 @@ if (isset($article->metadata->authors))
     }
 }
 
-$avatar_url = '/images/icons/hackergotchi-notfound.png';
+$avatar_url = 'http://news.meego.com/images/icons/hackergotchi-notfound.png';
 if ($author->guid)
 {
     /* grab avatars from gravatar */

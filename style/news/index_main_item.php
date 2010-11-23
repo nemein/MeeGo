@@ -28,18 +28,13 @@ if (isset($article->metadata->authors))
     }
 }
 
-$avatar_url = '/images/icons/hackergotchi-notfound.png';
-
+$avatar_url = 'http://news.meego.com/images/icons/hackergotchi-notfound.png';
 if ($author->guid)
 {
-    $avatar = $author->get_attachment('avatar_thumbnail');
-    if (   $avatar
-        && $avatar->guid)
-    {
-        $avatar_url = MIDCOM_STATIC_URL . "/static/" . $avatar->guid[0] . "/" . $avatar->guid . "_avatar_thumbnail";
-    }
+    /* grab avatars from gravatar */
+    $hash = md5( strtolower( trim($author->email) ) );
+    $avatar_url = 'http://www.gravatar.com/avatar/' . $hash . '?default=' . $avatar_url;
 }
-
 
 $node_string = "<a class=\"url\" href=\"{$node[MIDCOM_NAV_FULLURL]}\" rel=\"category\">${node[MIDCOM_NAV_NAME]}</a>";
 
@@ -57,7 +52,7 @@ $date_string = "<abbr class=\"published\" title=\"" . strftime('%Y-%m-%dT%H:%M:%
     ?>
 
     <div class="author-vcard">
-    
+
     <h1><a href="&(article.url);" rel="bookmark">&(article.title:h);</a></h1>
     <div class="publish-info">
 
