@@ -3,8 +3,8 @@
   $_MIDCOM->enable_jquery();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="keywords" content="midgard,meego,maemo" />
@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/meego.css"/>
     <link rel="shortcut icon" href="http://meego.com/sites/all/themes/meego/favicon.ico" type="image/x-icon" />
     <?php
-      $_MIDCOM->print_head_elements(); 
+      $_MIDCOM->print_head_elements();
     ?>
     <?php
       $_MIDCOM->componentloader->load_graceful('net.nemein.favourites');
@@ -22,7 +22,7 @@
       else {
         net_nemein_favourites_admin::get_ajax_headers('{force_ssl: false}');
       }
-    ?>  
+    ?>
     <link rel="stylesheet" type="text/css" media="screen" href="/favourites.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="/news.css"/>
     <title><?php echo $topic->extra; ?> | <(title)></title>
@@ -52,18 +52,15 @@
                 <div class="maintenancebox">
                   <h1>Dear Visitor!</h1>
                   <p>
-                    These pages are used by our colleagues for managing the web site.
+                    Please login with your meego.com username and password.
                   </p>
                   <p>
-                    If you would like to get in touch with us please send an email to:<br/>
-                    <a href="mailto:webmaster@meego.com">webmaster [at] meego dot com</a>
-                    <span class="mailto"</span>
+                    Logging in will enable you to vote for news items.
                   </p>
-                  <p>Thank You!</p>
                 </div>
                 <div class="loginbox">
-                <?php 
-                  $_MIDCOM->auth->show_login_form(); 
+                <?php
+                  $_MIDCOM->auth->show_login_form();
                 ?>
               </div>
             </div>
@@ -128,9 +125,9 @@
       </div>
     </div>
     <!-- /page -->
-    <?php 
-    $_MIDCOM->uimessages->show(); 
-    $_MIDCOM->toolbars->show(); 
+    <?php
+    $_MIDCOM->uimessages->show();
+    $_MIDCOM->toolbars->show();
     ?>
   </body>
 </html>
