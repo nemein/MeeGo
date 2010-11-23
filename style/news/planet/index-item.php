@@ -78,11 +78,8 @@ if (isset($data['article']->metadata->authors))
 }
 
 $homepage = "http://news.meego.com/";
-if ($author->homepage)
-{
-    $homepage = $author->homepage;
-}
-elseif ($author->username)
+if (   $author->username
+    && $author->id != 1)
 {
     $homepage = "http://meego.com/users/" . $author->username;
 }
