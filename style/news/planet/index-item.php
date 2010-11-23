@@ -77,6 +77,7 @@ if (isset($data['article']->metadata->authors))
     }
 }
 
+$homepage = "http://news.meego.com/";
 if ($author->homepage)
 {
     $homepage = $author->homepage;
@@ -84,10 +85,6 @@ if ($author->homepage)
 elseif ($author->username)
 {
     $homepage = "http://meego.com/users/" . $author->username;
-}
-else
-{
-    $homepage = "http://news.meego.com/";
 }
 
 $avatar_url = 'http://news.meego.com/images/icons/hackergotchi-notfound.png';
