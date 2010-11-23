@@ -1,7 +1,5 @@
 <?php
 
-ldap_auth_pre_callback($argv[1]);
-
 /**
  * do a midgard query for username
  * return if username alresdy eixst in db
