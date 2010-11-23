@@ -83,22 +83,19 @@ if ($author->homepage)
 }
 elseif ($author->username)
 {
-    $homepage = "http://meego.nemein.net/?q=user";
+    $homepage = "http://meego.com/users/" . $author->username;
 }
 else
 {
-    $homepage = "http://meego.nemein.net/";
+    $homepage = "http://news.meego.com/";
 }
 
 $avatar_url = '/images/icons/hackergotchi-notfound.png';
 if ($author->guid)
 {
-    $avatar = $author->get_attachment('avatar_thumbnail');
-    if (   $avatar
-        && $avatar->guid)
-    {
-        $avatar_url = MIDCOM_STATIC_URL . "/static/" . $avatar->guid[0] . "/" . $avatar->guid . "_avatar_thumbnail";
-    }
+    /* grab avatars from gravatar */
+    $hash = md5( strtolower( trim($author->email) ) );
+    $avatar_url = 'http://www.gravatar.com/avatar/' . $hash;
 }
 
 $visible = $author->get_parameter('net.nehmer.account', 'visible_field_list');
@@ -151,11 +148,11 @@ if (empty($author_name_string))
                 ?>
                 </noscript>
             </div><!-- fav -->
-        
+
             </div><!-- publish-info -->
         </div><!-- /author-vcard -->
 
- 
+
 
     <div class="post-content">
 <?php org_maemo_planet_truncater($view['content'], $data['view_url']); ?>
