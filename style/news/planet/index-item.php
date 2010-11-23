@@ -95,7 +95,7 @@ if ($author->guid)
 {
     /* grab avatars from gravatar */
     $hash = md5( strtolower( trim($author->email) ) );
-    $avatar_url = 'http://www.gravatar.com/avatar/' . $hash;
+    $avatar_url = 'http://www.gravatar.com/avatar/' . $hash . '?default=' . $avatar_url;
 }
 
 $visible = $author->get_parameter('net.nehmer.account', 'visible_field_list');
