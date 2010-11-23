@@ -10,7 +10,7 @@
 function ldap_auth_pre_callback($username)
 {
     $qb = new midgard_query_builder('midgard_person');
-    $qb->add_contraint('username', '=', $username);
+    $qb->add_constraint('username', '=', $username);
     if ($qb->count() > 0)
     {
         return;
