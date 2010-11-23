@@ -10,7 +10,25 @@ ldap_auth_pre_callback($argv[1]);
  * if user does not exist then .. give up :)
  */
 function ldap_auth_pre_callback($username) {
-    var_dump(_ldap_search($username));
+    $qb = new midgard_query_builder('midgard_person');
+    $qb->add_contraint('username', '=', $username);
+
+    $users = $qb->execute();
+
+    if (count($users)) {
+        return;
+    }
+    else
+    {
+        $ldap_user = _ldap_search($username);
+        if ($ldap_user)
+        {
+            echo "create an account for: " . $username . "\n";
+            var_dump($ldap_user);
+        }
+    }
+    unset($users);
+    unset($ldap_user);
     return;
 }
 
@@ -25,7 +43,7 @@ function _ldap_search($criteria)
     $retval = null;
     if (isset($criteria))
     {
-        $criteria .= 'uid=' . $criteria;
+        $criteria = 'uid=' . $criteria;
 
         $ds = ldap_connect("ldaps://ldap1.meego.com");
         echo "Connect result is " . $ds . "\n";
