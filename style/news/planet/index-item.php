@@ -89,29 +89,11 @@ if ($author->guid)
 {
     /* grab avatars from gravatar */
     $hash = md5( strtolower( trim($author->email) ) );
-    $avatar_url = 'http://www.gravatar.com/avatar/' . $hash . '?default=' . $avatar_url;
+    $avatar_url = 'http://www.gravatar.com/avatar/' . $hash . '?default=' . $avatar_url . '&s=40';
 }
 
-$visible = $author->get_parameter('net.nehmer.account', 'visible_field_list');
-$author_name_string = '';
-if (   !is_null($visible)
-    && $visible != false)
-{
-    if (strpos($visible, 'firstname') !== false)
-    {
-        $author_name_string .= $author->firstname;
-    }
-    if (strpos($visible, 'lastname') !== false)
-    {
-        $author_name_string .= " {$author->lastname}";
-    }
-    $author_name_string = trim($author_name_string);
-}
+$author_name_string = $author->username;
 
-if (empty($author_name_string))
-{
-    $author_name_string = $author->username;
-}
 ?>
 <div class="planet-entry hentry counter_&(view_counter); &(class_str);">
     <img class="picture" src="&(avatar_url);" alt="&(author_name_string);" />

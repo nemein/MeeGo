@@ -33,7 +33,7 @@ if ($author->guid)
 {
     /* grab avatars from gravatar */
     $hash = md5( strtolower( trim($author->email) ) );
-    $avatar_url = 'http://www.gravatar.com/avatar/' . $hash . '?default=' . $avatar_url;
+    $avatar_url = 'http://www.gravatar.com/avatar/' . $hash . '?default=' . $avatar_url . '&s=40';
 }
 
 $node_string = "<a class=\"url\" href=\"{$node[MIDCOM_NAV_FULLURL]}\" rel=\"category\">${node[MIDCOM_NAV_NAME]}</a>";
