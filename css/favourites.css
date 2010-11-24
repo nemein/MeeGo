@@ -1,88 +1,87 @@
 /* /comments */
-div.hentry .net_nemein_favourites 
+div.hentry .net_nemein_favourites
 {
-  display: block;
+display: block;
 }
 
 /* Icons */
 
 .fav
 {
-  float: right;
-  width: 80px;
-  margin-left: 5px;
+float: right;
+width: 80px;
+margin-left: 5px;
 }
 
 .net_nemein_favourites
 {
-  margin-left: 1px;
-  text-align: center;
+margin-left: 1px;
+text-align: center;
 }
 
 .net_nemein_favourites .fav_btn
 {
-	float: left;
+float: left;
 }
 
 .net_nemein_favourites .bury_btn
 {
-	float: right;
+float: right;
 }
 
 .net_nemein_favourites .fav_btn,
 .net_nemein_favourites .bury_btn
 {
-  width: 34px;
-  height: 18px;
-	background-position: left top;
-	background-repeat: no-repeat;
-	cursor: pointer;
+width: 34px;
+height: 18px;
+background-position: left top;
+background-repeat: no-repeat;
+cursor: pointer;
 }
 .net_nemein_favourites .fav_btn span,
 .net_nemein_favourites .bury_btn span
 {
-  line-height: 18px;
-	float: right;
-	font-weight: normal;
+line-height: 18px;
+float: right;
+font-weight: normal;
 }
 
 .net_nemein_favourites .fav_btn
 {
-  background-image: url('/images/icons/favourite.png');
+background-image: url('/images/icons/favourite.png');
 }
 .net_nemein_favourites .fav_btn_hover
 {
-  background-image: url('/images/icons/favourite-hover.png');
+background-image: url('/images/icons/favourite-hover.png');
 }
 .net_nemein_favourites .bury_btn
 {
-  background-image: url('/images/icons/buried.png');
+background-image: url('/images/icons/buried.png');
 }
 .net_nemein_favourites .bury_btn_hover
 {
-  background-image: url('/images/icons/buried-hover.png');
+background-image: url('/images/icons/buried-hover.png');
 }
 
 .net_nemein_favourites .fav_btn_voted
 {
-  background-image: url('/images/icons/favourite-selected.png');
+background-image: url('/images/icons/favourite-selected.png');
 }
 .net_nemein_favourites .bury_btn_voted
 {
-  background-image: url('/images/icons/buried-selected.png');
+background-image: url('/images/icons/buried-selected.png');
 }
 
 .net_nemein_favourites .fav_btn_loading,
 .net_nemein_favourites .bury_btn_loading
 {
-  background-image: url('/images/icons/loader.gif');
+background-image: url('/images/icons/loader.gif');
 }
 
 .net_nemein_favourites_clearfix {
-	clear: left;
-	height: 0;
-	line-height: 0;
-	margin: 0;
-	padding: 0;
+clear: left;
+height: 0;
+line-height: 0;
+margin: 0;
+padding: 0;
 }
-
