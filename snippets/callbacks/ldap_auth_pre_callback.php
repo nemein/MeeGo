@@ -25,7 +25,10 @@ function ldap_auth_pre_callback($username)
             $user->firstname = $ldap_user['firstname'];
             $user->email = $ldap_user['email'];
             $user->create();
+            // use this parameter to fetch avatars from meego.com
+            $user->set_parameter('org.maemo.socialnews', 'employeenumber', $ldap_user['employeenumber']);
         }
+
     }
     unset($ldap_user);
 }
@@ -60,10 +63,12 @@ function _ldap_search($criteria)
             $info = ldap_get_entries($ds, $sr);
 
             if ($info['count'] > 0) {
+
                 $retval = array(
                     'username' => $info[0]["uid"][0],
                     'firstname' => $info[0]["cn"][0],
-                    'email' => $info[0]["mail"][0]
+                    'email' => $info[0]["mail"][0],
+                    'employeenumber' => $info[0]["employeenumber"][0]
                 );
             }
             ldap_close($ds);
