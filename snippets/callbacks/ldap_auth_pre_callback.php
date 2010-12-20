@@ -50,7 +50,7 @@ function _ldap_search($criteria)
     {
         $criteria = 'uid=' . $criteria;
 
-        $ds = ldap_connect("ldaps://ldap1.in.<meego.com");
+        $ds = ldap_connect("ldaps://ldap1.in.meego.com");
 
         if ( ! $ds )
         {
